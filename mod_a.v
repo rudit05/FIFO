@@ -11,7 +11,7 @@ module mod_a (
             wr_en <= 0;
         end else begin
             data_out <= data_in;
-            wr_en <= 1'b1; // Explicitly set to write every cycle [9]
+            wr_en <= 1'b1;
         end
     end
 endmodule
