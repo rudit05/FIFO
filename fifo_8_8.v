@@ -4,9 +4,9 @@ module fifo_8_8(
     output full, empty
     );
     
-    reg [2:0] wr_ptr=0, rd_ptr=0; // signals to represent our 8 locations
+    reg [2:0] wr_ptr=0, rd_ptr=0; 
     
-    reg [7:0] mem [0:7]; // 8 register (0(MSB) -> 7(LSB)) each of 8 bits(7(MSB) -> 0(LSB))
+    reg [7:0] mem [0:7]; 
     
     integer i;
     
