@@ -7,13 +7,12 @@ module mod_b (
     parameter idle = 2'b00, s1 = 2'b01, data_state = 2'b10;
     reg [1:0] ps, ns;
 
-    // State Transition Logic [11]
+
     always @(posedge clk) begin
         if (rst) ps <= idle;
         else ps <= ns;
     end
-
-    // Next State & Output Logic [11, 12]
+    
     always @(*) begin
         case (ps)
             idle: begin
@@ -27,7 +26,7 @@ module mod_b (
                     ns = idle; 
                     rd_en = 1; 
                     data_out = data_in;
-                  end // Read only in data_state
+                  end 
         endcase
     end
 
