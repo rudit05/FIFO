@@ -3,8 +3,8 @@ module top_fifo (
     input [7:0] data_in_top,
     output [7:0] data_out_top
 );
-    wire [7:0] data_out_temp; // From Mod A to FIFO
-    wire [7:0] data_out_fifo; // From FIFO to Mod B
+    wire [7:0] data_out_temp; 
+    wire [7:0] data_out_fifo; 
     wire wr_en, rd_en;
     wire full, empty;
 
