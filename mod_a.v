@@ -14,6 +14,5 @@ module mod_a (
             data_out <= data_in;
             wr_en <= 1'b1; 
         end
-        else wr_en <= 1'b0;
     end
 endmodule
