@@ -1,6 +1,6 @@
 module mod_a (
     input [7:0] data_in,
-    input clk, rst,
+    input clk, rst, full,
     output reg [7:0] data_out,
     output reg wr_en
 );
@@ -9,9 +9,11 @@ module mod_a (
         if (rst) begin
             data_out <= 0;
             wr_en <= 0;
-        end else begin
+        end 
+        else if (!full) begin
             data_out <= data_in;
-            wr_en <= 1'b1;
+            wr_en <= 1'b1; 
         end
+        else wr_en <= 1'b0;
     end
 endmodule
