@@ -3,13 +3,13 @@ module top_fifo (
     input [7:0] data_in_top,
     output [7:0] data_out_top
 );
-    wire [7:0] data_out_temp; 
-    wire [7:0] data_out_fifo; 
+    wire [7:0] data_out_temp; // From Mod A to FIFO
+    wire [7:0] data_out_fifo; // From FIFO to Mod B
     wire wr_en, rd_en;
     wire full, empty;
 
     mod_a mod1 (
-        .data_in(data_in_top), .clk(clk), .rst(rst),
+        .data_in(data_in_top), .clk(clk), .rst(rst), .full(full),
         .data_out(data_out_temp), .wr_en(wr_en)
     );
 
@@ -21,7 +21,7 @@ module top_fifo (
     );
 
     mod_b mod2 (
-        .clk(clk), .rst(rst),
+        .clk(clk), .rst(rst), .empty(empty),
         .data_in(data_out_fifo), .data_out(data_out_top),
         .rd_en(rd_en)
     );
