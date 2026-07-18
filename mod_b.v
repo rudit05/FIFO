@@ -9,11 +9,12 @@ module mod_b (
 
     always @(posedge clk) begin
         if (rst) ps <= idle;
-        else if (!empty) ps <= ns;
+        else ps <= ns;
     end
 
     always @(*) begin
-        if (!empty) begin
+        if (empty) ns = idle;
+        else begin
          case (ps)
                 idle: begin
                         ns = s1; 
